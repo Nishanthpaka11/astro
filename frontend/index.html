@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="வ உ சி யின் உறவைத் தேடி — Generate Rasi, Navamsa charts and 10-point Porutham matching using Lahiri Ayanamsa and Swiss Ephemeris.">
+    <title>வ உ சி யின் உறவைத் தேடி — Vedic Astrology Birth Chart Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar__logo">
+        <svg class="navbar__logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        <span class="navbar__logo-text">வ உ சி யின் உறவைத் தேடி</span>
+    </a>
+    <ul class="navbar__links" id="navLinks">
+        <li><a href="index.html" class="navbar__link navbar__link--active" data-i18n="nav_home">Home</a></li>
+        <li><a href="form.html" class="navbar__link" data-i18n="nav_generate">Generate Chart</a></li>
+        <li><a href="form.html#matching" class="navbar__link" data-i18n="nav_matching">Matching</a></li>
+        <li><a href="#about" class="navbar__link" data-i18n="nav_about">About</a></li>
+        <li><a href="#contact" class="navbar__link" data-i18n="nav_contact">Contact</a></li>
+        <li><a href="history.html" class="navbar__link" data-i18n="nav_history">History</a></li>
+    </ul>
+    <div class="navbar__right">
+        <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">தமிழ்</button>
+        <a href="form.html" class="navbar__cta" data-i18n="nav_get_started">Get Started</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero__bg" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1920&q=80'); opacity: 0.25;"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+        <span class="hero__badge" data-i18n="hero_badge">
+            Vedic Astrology · Lahiri Ayanamsa · Swiss Ephemeris
+        </span>
+        <h1 class="hero__title" data-i18n="hero_title">வ உ சி யின் உறவைத் தேடி</h1>
+        <p class="hero__subtitle" data-i18n="hero_subtitle">Bride &amp; Groom Horoscope Matching</p>
+        <p class="hero__desc" data-i18n="hero_desc">Generate precise Rasi &amp; Navamsa charts, planetary positions, Nakshatra analysis, and 10-point Porutham compatibility — powered by authentic Sidereal calculations.</p>
+        <div class="hero__ctas">
+            <a href="form.html" class="btn btn--primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                <span data-i18n="hero_cta1">Generate Horoscope</span>
+            </a>
+            <a href="form.html#matching" class="btn btn--secondary">
+                <span data-i18n="hero_cta2">Check Compatibility</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section section--alt">
+    <div class="section__header">
+        <div class="section__label" data-i18n="feat_label">WHAT WE OFFER</div>
+        <h2 class="section__title" data-i18n="feat_title">Comprehensive Vedic Astrology</h2>
+        <p class="section__subtitle" data-i18n="feat_subtitle">Every calculation you need, from birth charts to marriage matching</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="feat_rasi_title">Rasi Chart</h3>
+            <p class="feature-card__desc" data-i18n="feat_rasi_desc">South Indian style Rasi chart with accurate planetary placements using Swiss Ephemeris.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="feat_navamsa_title">Navamsa Chart</h3>
+            <p class="feature-card__desc" data-i18n="feat_navamsa_desc">D-9 divisional chart calculated from each sign's 9-part division for deeper insight.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="feat_nakshatra_title">Nakshatra &amp; Pada</h3>
+            <p class="feature-card__desc" data-i18n="feat_nakshatra_desc">Complete Nakshatra identification with precise Pada calculation for both Bride and Groom.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="feat_porutham_title">10-Point Porutham</h3>
+            <p class="feature-card__desc" data-i18n="feat_porutham_desc">Traditional Tamil marriage compatibility across Dina, Gana, Yoni, Rajju, Vedha, Nadi and more.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="section">
+    <div class="section__header">
+        <div class="section__label" data-i18n="steps_label">HOW IT WORKS</div>
+        <h2 class="section__title" data-i18n="steps_title">Three Simple Steps</h2>
+    </div>
+    <div class="steps-row">
+        <div class="step-card">
+            <div class="step-card__number">01</div>
+            <h3 class="step-card__title" data-i18n="step1_title">Enter Birth Details</h3>
+            <p class="step-card__desc" data-i18n="step1_desc">Input name, date, time and place of birth for both Bride and Groom.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-card__number">02</div>
+            <h3 class="step-card__title" data-i18n="step2_title">Generate Charts</h3>
+            <p class="step-card__desc" data-i18n="step2_desc">Swiss Ephemeris computes planetary positions, Lagna, Nakshatra, Rasi and Navamsa charts.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-card__number">03</div>
+            <h3 class="step-card__title" data-i18n="step3_title">View Compatibility</h3>
+            <p class="step-card__desc" data-i18n="step3_desc">Get your 10-point Porutham score with detailed analysis of each compatibility factor.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section section--alt cta-section">
+    <div class="cta-section__divider"></div>
+    <h2 class="section__title" data-i18n="cta_title">Ready to Discover Your Stars?</h2>
+    <p class="section__subtitle" data-i18n="cta_subtitle">Generate your birth chart and find your perfect match today.</p>
+    <a href="form.html" class="btn btn--primary btn--large">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <span data-i18n="cta_btn">Start Now — It's Free</span>
+    </a>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+    <div class="footer__top">
+        <div class="footer__brand">
+            <div class="footer__logo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A962" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <span class="navbar__logo-text" style="font-size: 18px;">வ உ சி யின் உறவைத் தேடி</span>
+            </div>
+            <p class="footer__tagline" data-i18n="footer_tagline">Authentic Vedic Astrology powered by Swiss Ephemeris and Lahiri Ayanamsa.</p>
+        </div>
+        <div class="footer__links-group">
+            <h4 data-i18n="footer_product">Product</h4>
+            <a href="form.html" data-i18n="footer_birth_chart">Birth Chart</a>
+            <a href="form.html#matching" data-i18n="footer_matching">Matching</a>
+            <a href="#" data-i18n="footer_rasi">Rasi Chart</a>
+            <a href="#" data-i18n="footer_navamsa">Navamsa</a>
+        </div>
+        <div class="footer__links-group">
+            <h4 data-i18n="footer_company">Company</h4>
+            <a href="#about" data-i18n="footer_about_us">About Us</a>
+            <a href="#contact" data-i18n="footer_contact">Contact</a>
+            <a href="#" data-i18n="footer_blog">Blog</a>
+        </div>
+        <div class="footer__links-group">
+            <h4 data-i18n="footer_legal">Legal</h4>
+            <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+            <a href="#" data-i18n="footer_terms">Terms of Service</a>
+        </div>
+    </div>
+    <div class="footer__divider"></div>
+    <div class="footer__bottom" data-i18n="footer_copy">© 2026 வ உ சி யின் உறவைத் தேடி. All rights reserved.</div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script>document.addEventListener('DOMContentLoaded', initLanguage);</script>
+</body>
+</html>

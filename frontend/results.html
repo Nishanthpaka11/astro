@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Horoscope Results — Rasi Chart, Navamsa Chart, Planetary Positions">
+    <title>Horoscope Results — வ உ சி யின் உறவைத் தேடி</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" data-html2canvas-ignore>
+        <a href="index.html" class="navbar__logo">
+            <svg class="navbar__logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" /><path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" /><path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+            <span class="navbar__logo-text">வ உ சி யின் உறவைத் தேடி</span>
+        </a>
+        <ul class="navbar__links" id="navLinks">
+            <li><a href="index.html" class="navbar__link" data-i18n="nav_home">Home</a></li>
+            <li><a href="form.html" class="navbar__link navbar__link--active" data-i18n="nav_generate">Generate Chart</a></li>
+            <li><a href="form.html#matching" class="navbar__link" data-i18n="nav_matching">Matching</a></li>
+            <li><a href="index.html#about" class="navbar__link" data-i18n="nav_about">About</a></li>
+            <li><a href="history.html" class="navbar__link" data-i18n="nav_history">History</a></li>
+        </ul>
+        <div class="navbar__right">
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">தமிழ்</button>
+        </div>
+        <button class="navbar__hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Printable Content Wrapper -->
+    <div id="printArea">
+
+    <!-- Page Header -->
+    <div class="page-header" id="resultsHeader">
+        <div class="section__label" data-i18n="results_label">HOROSCOPE RESULTS</div>
+        <h1 class="section__title" id="resultTitle" style="margin-top: 12px;">Birth Chart</h1>
+        <p class="section__subtitle" id="resultMeta" style="margin-top: 8px;"></p>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards" id="summaryCards">
+        <div class="summary-card">
+            <div class="summary-card__label" data-i18n="label_lagna">Lagna (Ascendant)</div>
+            <div class="summary-card__value" id="lagnaValue">—</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-card__label" data-i18n="label_nakshatra">Nakshatra</div>
+            <div class="summary-card__value" id="nakshatraValue">—</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-card__label" data-i18n="label_moon_sign">Moon Sign (Rasi)</div>
+            <div class="summary-card__value" id="moonSignValue">—</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-card__label" data-i18n="label_sun_sign">Sun Sign</div>
+            <div class="summary-card__value" id="sunSignValue">—</div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-row">
+        <!-- Rasi Chart -->
+        <div class="chart-card">
+            <h3 class="chart-card__title" data-i18n="chart_rasi_title">South Indian Rasi Chart</h3>
+            <div class="chart-grid" id="rasiChart"></div>
+        </div>
+        <!-- Navamsa Chart -->
+        <div class="chart-card">
+            <h3 class="chart-card__title" data-i18n="chart_navamsa_title">Navamsa Chart (D-9)</h3>
+            <div class="chart-grid" id="navamsaChart"></div>
+        </div>
+    </div>
+
+    <!-- Planetary Positions -->
+    <div class="planet-section">
+        <h3 class="planet-section__title" data-i18n="planet_section_title">Planetary Positions</h3>
+        <table class="planet-table">
+            <thead>
+                <tr>
+                    <th data-i18n="th_planet">Planet</th>
+                    <th data-i18n="th_rasi">Rasi (Sign)</th>
+                    <th data-i18n="th_degree">Degree</th>
+                    <th data-i18n="th_nakshatra">Nakshatra</th>
+                    <th data-i18n="th_pada">Pada</th>
+                </tr>
+            </thead>
+            <tbody id="planetTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    </div><!-- End #printArea -->
+
+    <!-- Action Buttons -->
+    <div class="submit-area" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn--primary" onclick="downloadPDF('printArea', 'Birth_Chart_VOC.pdf')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span data-i18n="btn_download_pdf">Download PDF</span>
+        </button>
+        <a href="porutham.html" class="btn btn--secondary" id="viewPoruthamBtn" style="display: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
+            <span data-i18n="btn_view_porutham">View Porutham Results</span>
+        </a>
+        <a href="form.html" class="btn btn--secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m15 18-6-6 6-6" />
+            </svg>
+            <span data-i18n="btn_generate_another">Generate Another</span>
+        </a>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initLanguage();
+            loadResults();
+        });
+    </script>
+</body>
+
+</html>
