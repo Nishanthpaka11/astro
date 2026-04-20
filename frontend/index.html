@@ -17,16 +17,15 @@
         <span class="navbar__logo-text">வ உ சி யின் உறவைத் தேடி</span>
     </a>
     <ul class="navbar__links" id="navLinks">
-        <li><a href="index.html" class="navbar__link navbar__link--active" data-i18n="nav_home">Home</a></li>
-        <li><a href="form.html" class="navbar__link" data-i18n="nav_generate">Generate Chart</a></li>
-        <li><a href="form.html#matching" class="navbar__link" data-i18n="nav_matching">Matching</a></li>
-        <li><a href="#about" class="navbar__link" data-i18n="nav_about">About</a></li>
-        <li><a href="#contact" class="navbar__link" data-i18n="nav_contact">Contact</a></li>
-        <li><a href="history.html" class="navbar__link" data-i18n="nav_history">History</a></li>
+        <li><a href="index.html" class="navbar__link navbar__link--active">Home</a></li>
+        <li><a href="brides.html" class="navbar__link">Brides</a></li>
+        <li><a href="grooms.html" class="navbar__link">Grooms</a></li>
+        <li><a href="match.html" class="navbar__link">Match</a></li>
+        <li><a href="history.html" class="navbar__link">History</a></li>
     </ul>
     <div class="navbar__right">
         <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">தமிழ்</button>
-        <a href="form.html" class="navbar__cta" data-i18n="nav_get_started">Get Started</a>
+        <a href="form.html?type=bride" class="navbar__cta">Get Started</a>
     </div>
     <button class="navbar__hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
         <span></span><span></span><span></span>
@@ -45,12 +44,12 @@
         <p class="hero__subtitle" data-i18n="hero_subtitle">Bride &amp; Groom Horoscope Matching</p>
         <p class="hero__desc" data-i18n="hero_desc">Generate precise Rasi &amp; Navamsa charts, planetary positions, Nakshatra analysis, and 10-point Porutham compatibility — powered by authentic Sidereal calculations.</p>
         <div class="hero__ctas">
-            <a href="form.html" class="btn btn--primary">
+            <a href="form.html?type=bride" class="btn btn--primary">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                <span data-i18n="hero_cta1">Generate Horoscope</span>
+                <span>Add Profile</span>
             </a>
-            <a href="form.html#matching" class="btn btn--secondary">
-                <span data-i18n="hero_cta2">Check Compatibility</span>
+            <a href="match.html" class="btn btn--secondary">
+                <span>Check Compatibility</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             </a>
         </div>
@@ -126,39 +125,38 @@
     <div class="cta-section__divider"></div>
     <h2 class="section__title" data-i18n="cta_title">Ready to Discover Your Stars?</h2>
     <p class="section__subtitle" data-i18n="cta_subtitle">Generate your birth chart and find your perfect match today.</p>
-    <a href="form.html" class="btn btn--primary btn--large">
+    <a href="form.html?type=bride" class="btn btn--primary btn--large">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-        <span data-i18n="cta_btn">Start Now — It's Free</span>
+        <span>Start Now — It's Free</span>
     </a>
 </section>
 
 <!-- Footer -->
-<footer class="footer" id="contact">
+<footer class="footer">
     <div class="footer__top">
         <div class="footer__brand">
             <div class="footer__logo">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A962" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                 <span class="navbar__logo-text" style="font-size: 18px;">வ உ சி யின் உறவைத் தேடி</span>
             </div>
-            <p class="footer__tagline" data-i18n="footer_tagline">Authentic Vedic Astrology powered by Swiss Ephemeris and Lahiri Ayanamsa.</p>
+            <p class="footer__tagline">Authentic Vedic Astrology powered by Swiss Ephemeris and Lahiri Ayanamsa.</p>
         </div>
         <div class="footer__links-group">
-            <h4 data-i18n="footer_product">Product</h4>
-            <a href="form.html" data-i18n="footer_birth_chart">Birth Chart</a>
-            <a href="form.html#matching" data-i18n="footer_matching">Matching</a>
-            <a href="#" data-i18n="footer_rasi">Rasi Chart</a>
-            <a href="#" data-i18n="footer_navamsa">Navamsa</a>
+            <h4>Navigate</h4>
+            <a href="brides.html">Brides</a>
+            <a href="grooms.html">Grooms</a>
+            <a href="match.html">Match</a>
+            <a href="history.html">History</a>
         </div>
         <div class="footer__links-group">
-            <h4 data-i18n="footer_company">Company</h4>
-            <a href="#about" data-i18n="footer_about_us">About Us</a>
-            <a href="#contact" data-i18n="footer_contact">Contact</a>
-            <a href="#" data-i18n="footer_blog">Blog</a>
+            <h4>Features</h4>
+            <a href="form.html?type=bride">Add Profile</a>
+            <a href="match.html">Porutham Matching</a>
         </div>
         <div class="footer__links-group">
-            <h4 data-i18n="footer_legal">Legal</h4>
-            <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
-            <a href="#" data-i18n="footer_terms">Terms of Service</a>
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
         </div>
     </div>
     <div class="footer__divider"></div>

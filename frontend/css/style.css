@@ -896,6 +896,352 @@ h1, h2, h3, h4 {
     display: block;
 }
 
+/* ─── Tabs ────────────────────────────────────────────────────────────────── */
+.tabs {
+    display: flex;
+    gap: 0;
+    padding: 0 56px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+}
+
+.tab-btn {
+    padding: 16px 32px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn--active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+    font-weight: 600;
+}
+
+/* ─── Form Sections ──────────────────────────────────────────────────────── */
+.form-section-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--gold);
+    margin: 28px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group select {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    border-color: var(--gold);
+}
+
+.form-group select option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* ─── Single Column Form ─────────────────────────────────────────────────── */
+.form-single {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 56px 48px;
+}
+
+/* ─── Search Bar ─────────────────────────────────────────────────────────── */
+.search-bar {
+    display: flex;
+    gap: 12px;
+    padding: 0 56px 24px;
+    align-items: center;
+}
+
+.search-bar input {
+    flex: 1;
+    height: 44px;
+    padding: 0 16px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+    border-color: var(--gold);
+}
+
+/* ─── Profile Autocomplete ───────────────────────────────────────────────── */
+.autocomplete-wrapper {
+    position: relative;
+}
+
+.autocomplete-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 50;
+    display: none;
+}
+
+.autocomplete-results.active {
+    display: block;
+}
+
+.autocomplete-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+}
+
+.autocomplete-item:hover {
+    background: var(--gold-10);
+}
+
+.autocomplete-item__id {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.autocomplete-item__name {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-top: 2px;
+}
+
+.autocomplete-item__meta {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+}
+
+/* ─── Profile Preview Cards ──────────────────────────────────────────────── */
+.match-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 0 56px 32px;
+}
+
+.profile-preview {
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.profile-preview--selected {
+    border-color: var(--gold-40);
+}
+
+.profile-preview__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-preview__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.profile-preview__name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--text-primary);
+}
+
+.profile-preview__id {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+}
+
+.profile-preview__detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+}
+
+.profile-preview__detail-label {
+    color: var(--text-tertiary);
+}
+
+.profile-preview__detail-value {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.profile-preview__empty {
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-tertiary);
+}
+
+/* ─── Confirmation Modal ─────────────────────────────────────────────────── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal__title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.modal__desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.modal__actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* ─── Data Table Actions ─────────────────────────────────────────────────── */
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn--sm {
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.btn--danger {
+    background: var(--error-bg);
+    color: var(--error);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.btn--danger:hover {
+    background: rgba(248, 113, 113, 0.15);
+}
+
+/* ─── Success Message ────────────────────────────────────────────────────── */
+.success-msg {
+    display: none;
+    padding: 16px 24px;
+    background: var(--success-bg);
+    border: 1px solid var(--success);
+    color: var(--success);
+    font-size: 14px;
+    margin: 16px 56px;
+}
+
+.success-msg.active {
+    display: block;
+}
+
+/* ─── Profile Detail View ────────────────────────────────────────────────── */
+.profile-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 56px 48px;
+}
+
+.profile-detail__section {
+    margin-bottom: 32px;
+}
+
+.profile-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.profile-detail__item {
+    padding: 12px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.profile-detail__item-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+}
+
+.profile-detail__item-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
     .features-grid {

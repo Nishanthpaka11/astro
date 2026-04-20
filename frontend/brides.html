@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Match History — Previous Porutham compatibility records">
-    <title>History — வ உ சி யின் உறவைத் தேடி</title>
+    <meta name="description" content="Manage bride profiles — view, edit, and delete bride records.">
+    <title>Brides — வ உ சி யின் உறவைத் தேடி</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
@@ -25,10 +25,10 @@
         </a>
         <ul class="navbar__links" id="navLinks">
             <li><a href="index.html" class="navbar__link">Home</a></li>
-            <li><a href="brides.html" class="navbar__link">Brides</a></li>
+            <li><a href="brides.html" class="navbar__link navbar__link--active">Brides</a></li>
             <li><a href="grooms.html" class="navbar__link">Grooms</a></li>
             <li><a href="match.html" class="navbar__link">Match</a></li>
-            <li><a href="history.html" class="navbar__link navbar__link--active">History</a></li>
+            <li><a href="history.html" class="navbar__link">History</a></li>
         </ul>
         <div class="navbar__right">
             <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">தமிழ்</button>
@@ -40,31 +40,53 @@
 
     <!-- Page Header -->
     <div class="page-header">
-        <div class="section__label">MATCH RECORDS</div>
-        <h1 class="section__title" style="margin-top: 12px;">Match History</h1>
-        <p class="section__subtitle" style="margin-top: 8px;">Browse previous Porutham compatibility analyses</p>
+        <div class="section__label">BRIDE PROFILES</div>
+        <h1 class="section__title" style="margin-top: 12px;">👰 Brides</h1>
+        <p class="section__subtitle" style="margin-top: 8px;">Manage all bride records and horoscope charts</p>
     </div>
 
-    <!-- History Table -->
+    <!-- Search + Add -->
+    <div class="search-bar">
+        <input type="text" id="brideSearch" placeholder="Search by name..." oninput="searchBrides()">
+        <a href="form.html?type=bride" class="btn btn--primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Add Bride
+        </a>
+    </div>
+
+    <!-- Table -->
     <div class="planet-section">
-        <table class="planet-table history-table">
+        <table class="planet-table">
             <thead>
                 <tr>
-                    <th>Match ID</th>
-                    <th>Bride</th>
-                    <th>Groom</th>
-                    <th>Date</th>
-                    <th>Score</th>
-                    <th>Verdict</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Place</th>
+                    <th>Religion / Caste</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody id="historyTableBody">
+            <tbody id="bridesTableBody">
                 <tr>
-                    <td colspan="7" style="text-align:center; padding:40px;">Loading records...</td>
+                    <td colspan="6" style="text-align:center; padding:40px;">Loading records...</td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <h3 class="modal__title">Delete Profile?</h3>
+            <p class="modal__desc" id="deleteModalDesc">Are you sure you want to delete this profile? This action cannot be undone.</p>
+            <div class="modal__actions">
+                <button class="btn btn--secondary btn--sm" onclick="closeDeleteModal()">Cancel</button>
+                <button class="btn btn--danger btn--sm" id="confirmDeleteBtn" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
     </div>
 
     <script src="js/translations.js"></script>
@@ -72,7 +94,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             initLanguage();
-            loadHistory();
+            loadBridesList();
         });
     </script>
 </body>
